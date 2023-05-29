@@ -22,16 +22,22 @@ public class Polynomial {
         
         double [] result = new double[length];
         
-        for (int i = 0; i < length; i++) {
-        	result[i] = 0;
+        if (coefficients.length >= poly.coefficients.length) {
+        	 for (int i = 0; i < coefficients.length; i++) {
+             	result[i] += coefficients[i] ;
+             }
+        	 for (int i = 0; i < poly.coefficients.length; i++) {
+             	result[i] += poly.coefficients[i] ;
+             }
+        } else {
+       	 for (int i = 0; i < coefficients.length; i++) {
+          	result[i] += coefficients[i] ;
+          }
+     	 for (int i = 0; i < poly.coefficients.length; i++) {
+          	result[i] += poly.coefficients[i] ;
+          }
         }
-        for (int i = 0; i < coefficients.length; i++) {
-        	result[i] += coefficients[i] ;
-        }
-        for (int i = 0; i < coefficients.length; i++) {
-        	result[i] += poly.coefficients[i] ;
-        }
-        
+       
         
         return new Polynomial(result);
 	}
