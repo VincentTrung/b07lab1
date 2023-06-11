@@ -26,24 +26,27 @@ public class Polynomial {
 		try {
 			BufferedReader file = new BufferedReader(new FileReader(f)); 
 			String line = file.readLine();
-			int c = 1;
+			int c = 0;
 			//loop should only run once
 			while (line != null) {
 				String [] parts = line.split("-|\\+");
 				coefficients = new double [parts.length];
 				exponents = new int [parts.length];
+				
 				for (String part:parts) {
-					if (part.contains("x")) {
-						String [] moreParts = part.split("x");
+					
+					String [] moreParts = part.split("x");
+					if (moreParts.length > 1) {
 						coefficients[c] = Double.parseDouble(moreParts[0]);
 						exponents[c] = Integer.parseInt(moreParts[1]);
-						c++;
-						
 					}else {
-						coefficients[0] = Double.parseDouble(parts[0]);
-						exponents[0] = 0;
+						coefficients[c] = Double.parseDouble(moreParts[0]);
+						exponents[c] = 0;
 	
 					}
+					c++;
+				
+
 				}
 				
 				line = file.readLine();
@@ -159,8 +162,7 @@ public class Polynomial {
         	}
         }
      
-        System.out.println(max);
-        System.out.println(max2);
+        
         
         max = max + max2 +1;
         double [] co_result = new double[max];

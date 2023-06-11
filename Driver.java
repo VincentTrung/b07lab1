@@ -42,6 +42,7 @@ public class Driver {
         System.out.println("1 is not a root of s");
 
         Polynomial m1 = p1.multiply(p5);
+
         m1.printing();
         
         System.out.println("File testing...");        
