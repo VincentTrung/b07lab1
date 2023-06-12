@@ -29,7 +29,7 @@ public class Polynomial {
 			int c = 0;
 			//loop should only run once
 			while (line != null) {
-				String [] parts = line.split("-|\\+");
+				String [] parts = line.split("(?=[-+])");
 				coefficients = new double [parts.length];
 				exponents = new int [parts.length];
 				
